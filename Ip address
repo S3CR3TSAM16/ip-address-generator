@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulk IP Address Generator</title>
+<style>
+    body {
+        background-image: url('https://i.postimg.cc/SxPbBtWG/aesthetic-view-of-dark-palm-leaves-wallpaper.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+    }
+    #container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    }
+    #ipAddresses {
+        margin-top: 20px;
+    }
+    button {
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+<script>
+function generateIPAddresses() {
+    var ipAddressList = "";
+    for (var i = 0; i < 1000; i++) { // Generating 1000 IP addresses
+        var ip = [];
+        for (var j = 0; j < 4; j++) {
+            ip.push(Math.floor(Math.random() * 256));
+        }
+        ipAddressList += ip.join(".") + " 
+        ";
+    }
+    document.getElementById("ipAddresses").innerHTML = ipAddressList;
+}
+
+function copyIPAddresses() {
+    var ipAddresses = document.getElementById("ipAddresses").innerHTML;
+    navigator.clipboard.writeText(ipAddresses);
+    alert("IP addresses copied to clipboard!");
+}
+</script>
+</head>
+<body>
+<div id="container">
+    <h1>Bulk IP Address Generator</h1>
+    <h2>By: SECRET </h2>
+    <button onclick="generateIPAddresses()">IP Addresses Generate Kare</button>
+    <button onclick="copyIPAddresses()">IP Addresses Copy Kare</button>
+    <div id="ipAddresses"></div>
+</div>
+</body>
+</html>
